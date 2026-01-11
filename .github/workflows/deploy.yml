@@ -4,27 +4,28 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
 
 env:
-  # Configuración de proyecto GCP
   PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
   REGION: us-central1
-  
-  # Nombres de Artifact Registry
   REPO_NAME: website
   IMAGE_NAME: website
-
-  # Nombre del servicio en Cloud Run
   SERVICE_NAME: deploy-website
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
 
+    defaults:
+      run:
+        working-directory: ./website
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      # IMPORTANTE: Google Auth NO usa working-directory, funciona global
       - name: Google Auth
         id: auth
         uses: google-github-actions/auth@v2
@@ -34,17 +35,16 @@ jobs:
       - name: Set up Cloud SDK
         uses: google-github-actions/setup-gcloud@v2
 
-      # Construir y subir imagen (Build)
+      # Ahora este comando se ejecutará ADENTRO de la carpeta 'website'
+      # Por lo tanto, el punto (.) ahora sí encontrará el Dockerfile
       - name: Build and Push Container
         run: |
           gcloud builds submit --tag ${{ env.REGION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPO_NAME }}/${{ env.IMAGE_NAME }}:latest .
 
-      # Desplegar servicio (Deploy)
       - name: Deploy to Cloud Run
         uses: google-github-actions/deploy-cloudrun@v2
         with:
           service: ${{ env.SERVICE_NAME }}
           region: ${{ env.REGION }}
           image: ${{ env.REGION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPO_NAME }}/${{ env.IMAGE_NAME }}:latest
-          # Configuración Low-Cost
           flags: '--allow-unauthenticated --memory=512Mi --cpu=1 --max-instances=2 --min-instances=0'

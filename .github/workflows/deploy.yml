@@ -39,7 +39,10 @@ jobs:
       # Por lo tanto, el punto (.) ahora sí encontrará el Dockerfile
       - name: Build and Push Container
         run: |
-          gcloud builds submit --tag ${{ env.REGION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPO_NAME }}/${{ env.IMAGE_NAME }}:latest .
+          gcloud builds submit \
+            --quiet \
+            --gcs-log-dir=gs://dpn-gcp-logs-prd/cloudbuild \
+            --tag ${{ env.REGION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPO_NAME }}/${{ env.IMAGE_NAME }}:latest .
 
       - name: Deploy to Cloud Run
         uses: google-github-actions/deploy-cloudrun@v2

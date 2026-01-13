@@ -5,7 +5,7 @@ import { Icon } from 'astro-icon/components';
 
 const { certifications } = CV_DATA;
 ---
-<section>
+<section id="certificaciones">
     <h2 class="text-2xl mb-6">Certificaciones</h2>
     <div class="flex flex-col gap-4">
         {certifications.map(({ title, issuer, date, link, badge }) => (

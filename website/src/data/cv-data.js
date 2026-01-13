@@ -1,5 +1,11 @@
 // src/data/cv-data.js
 export const CV_DATA = {
+  navigation: [
+    { name: "Experiencia", url: "#experiencia" },
+    { name: "Proyectos", url: "#proyectos" },
+    { name: "Certificaciones", url: "#certificaciones" },
+    { name: "Habilidades", url: "#habilidades" },
+  ],
   profile: {
     name: "Diego Pacheco",
     title: "Data Engineer | Experto en Cloud & DevOps",

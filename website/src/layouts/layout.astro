@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css'; 
+import Navbar from '../components/navbar.astro';
 
 interface Props {
 	title: string;
@@ -21,6 +22,7 @@ const { title } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body class="bg-slate-900 text-slate-300 font-[Onest]">
+		<Navbar />
 		<main class="container mx-auto max-w-3xl p-6 md:p-12">
 			<slot />
 		</main>

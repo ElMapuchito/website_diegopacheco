@@ -1,0 +1,103 @@
+---
+// src/components/Navbar.astro
+import { CV_DATA } from '../data/cv-data.js';
+import { Icon } from 'astro-icon/components';
+const { navigation } = CV_DATA;
+---
+<!-- 
+  El <header> es la barra superior. 
+  - Le damos un ID para que el script lo encuentre.
+  - Le damos las clases iniciales para que esté OCULTO (`opacity-0`, `-translate-y-full`).
+-->
+<header 
+  id="main-header" 
+  class="fixed top-0 z-50 flex items-center justify-center w-full h-20 px-6 backdrop-blur-lg bg-slate-900/50 border-b border-white/10
+         opacity-0 -translate-y-full transition-all duration-300"
+>
+    <div class="max-w-3xl w-full flex justify-between items-center">
+        <!-- Logo/Nombre -->
+        <a href="/" class="text-white font-bold text-lg">Diego Pacheco</a>
+
+        <!-- Navegación de Escritorio (Oculta en mobile) -->
+        <nav class="hidden sm:flex gap-x-6 text-slate-300">
+            {navigation.map(({ name, url }) => (
+                <a href={url} class="hover:text-sky-300 transition-colors">{name}</a>
+            ))}
+        </nav>
+
+        <!-- Botón del Menú Móvil (Solo visible en mobile) -->
+        <button id="hamburger-button" class="sm:hidden text-white p-2 rounded-md hover:bg-white/10 transition">
+            <Icon name="lucide:menu" class="size-6" />
+        </button>
+    </div>
+</header>
+
+<!-- Menú Lateral Móvil (Drawer) - sin cambios -->
+<aside id="mobile-menu" class="fixed top-0 right-0 z-50 h-full w-64 bg-slate-800/90 backdrop-blur-xl
+    p-8 transform translate-x-full transition-transform duration-300 ease-in-out">
+    <nav class="flex flex-col gap-y-6 text-xl text-slate-200">
+        {navigation.map(({ name, url }) => (
+            <a href={url} class="mobile-link hover:text-sky-300">{name}</a>
+        ))}
+    </nav>
+</aside>
+
+<!-- Overlay - sin cambios -->
+<div id="overlay" class="fixed inset-0 bg-black/50 z-40 hidden"></div>
+
+<script>
+    // --- LÓGICA COMBINADA ---
+
+    // 1. Lógica para el menú lateral (móvil)
+    function initializeMobileMenu() {
+        const hamburgerButton = document.getElementById('hamburger-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const overlay = document.getElementById('overlay');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        if (!hamburgerButton || !mobileMenu || !overlay) return;
+
+        function toggleMenu() {
+            mobileMenu.classList.toggle('translate-x-full');
+            overlay.classList.toggle('hidden');
+            document.body.classList.toggle('overflow-hidden');
+        }
+
+        hamburgerButton.addEventListener('click', toggleMenu);
+        overlay.addEventListener('click', toggleMenu);
+        mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
+    }
+
+    // 2. Lógica para mostrar/ocultar la barra superior con el scroll
+    function initializeScrollNavbar() {
+        const header = document.getElementById('main-header');
+        if (!header) return;
+
+        const safeZoneHeight = 150;
+        let ticking = false;
+
+        function updateHeaderVisibility() {
+            const currentScrollY = window.scrollY;
+
+            if (currentScrollY <= safeZoneHeight) {
+                header.classList.add('opacity-0', '-translate-y-full');
+            } else {
+                header.classList.remove('opacity-0', '-translate-y-full');
+            }
+            ticking = false;
+        }
+
+        document.addEventListener('scroll', () => {
+            if (!ticking) {
+                window.requestAnimationFrame(updateHeaderVisibility);
+                ticking = true;
+            }
+        });
+    }
+
+    // 3. Ejecutamos ambas lógicas cuando la página esté lista
+    document.addEventListener('DOMContentLoaded', () => {
+        initializeMobileMenu();
+        initializeScrollNavbar();
+    });
+</script>

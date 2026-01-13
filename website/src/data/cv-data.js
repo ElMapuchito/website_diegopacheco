@@ -9,11 +9,11 @@ export const CV_DATA = {
   profile: {
     name: "Diego Pacheco",
     title: "Data Engineer | Experto en Cloud & DevOps",
-    //email: "d.pa.navarro@gmail.com",
+    email: "contacto@diegopacheco.cl",
     linkedin: "https://www.linkedin.com/in/diego-pacheco-navarro/",
     github: "https://github.com/ElMapuchito",
     location: "Santiago, Chile",
-    about: "Apasionado por crear soluciones tecnológicas eficientes y escalables. Más de 5 años de experiencia transformando ideas en productos robustos, combinando desarrollo de software con las mejores prácticas de DevOps en la nube."
+    about: "Ingeniero de Datos y Cloud con más de 3 años de experiencia liderando la transformación de ecosistemas de datos. Me especializo en la migración de sistemas legados (on-premise, SAP ABAP) a arquitecturas nativas en Google Cloud Platform (GCP) o Amazon Web Services (AWS), construyendo y optimizando pipelines ETL robustos y automatizados. Mi enfoque se centra en la creación de productos de datos gobernados y de alto valor. Apasionado por la cultura DevOps y la automatización de infraestructura con CI/CD."
   },
   experience: [
     {

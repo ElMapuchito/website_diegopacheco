@@ -7,17 +7,10 @@ import Certifications from '../components/certifications.astro';
 import Skills from '../components/skills.astro';
 ---
 
-<!-- 3. Usamos el Layout como contenedor y le pasamos el título de la página. -->
 <Layout title="CV de Diego Pacheco">
 
-	<!-- 4. Colocamos el Header primero, ya que es la introducción. -->
 	<Header />
 
-	<!-- 
-		5. Envolvemos el resto de las secciones en un div con "space-y-16".
-		   Esto es un truco de TailwindCSS para añadir un espacio vertical
-		   generoso y consistente entre cada sección.
-	-->
 	<div class="space-y-16 mt-16">
 		<Experience />
 		<Projects />

@@ -3,7 +3,7 @@ export const CV_DATA = {
   profile: {
     name: "Diego Pacheco",
     title: "Data Engineer | Experto en Cloud & DevOps",
-    email: "d.pa.navarro@gmail.com",
+    //email: "d.pa.navarro@gmail.com",
     linkedin: "https://www.linkedin.com/in/diego-pacheco-navarro/",
     github: "https://github.com/ElMapuchito",
     location: "Santiago, Chile",
@@ -11,24 +11,39 @@ export const CV_DATA = {
   },
   experience: [
     {
-      title: "Ingeniero de Software Senior",
-      company: "Tech Solutions Inc.",
-      date: "Enero 2022 - Presente",
-      description: "Lideré el desarrollo del nuevo backend para la plataforma de e-commerce, mejorando la latencia en un 40% y desplegando en un entorno serverless con Cloud Run y CI/CD."
+      title: "AI & Data Engineer",
+      company: "Deloitte",
+      date: "Agosto 2025 - Presente",
+      description: "Mi rol se centra en la creación de productos de datos de alto valor, modernizando el ecosistema analítico de la compañía. Coperativamente llevamos la compleja tarea de re-arquitectar y migrar lógicas de negocio críticas desde sistemas SAP ABAP o Access a una arquitectura nativa en Google Cloud Platform (GCP), desbloqueando datos antes inaccesibles. Para garantizar la integridad y calidad de estos nuevos activos, donde se implemento un marco de gobernanza de datos utilizando Google Dataplex, automatizando el descubrimiento, la catalogación y la aplicación de políticas de seguridad. Además, desarrolle agentes inteligentes con Google ADK y el modelo Gemini para automatizar tareas de procesamiento y facilitar la consulta de datos en lenguaje natural."
     },
     {
-      title: "Desarrollador Full-Stack",
-      company: "Innovate Co.",
-      date: "Junio 2019 - Diciembre 2021",
-      description: "Desarrollé y mantuve aplicaciones web utilizando React y Node.js, participando activamente en el ciclo completo de vida del software."
+      title: "Data Engineer JR",
+      company: "Banco Itau",
+      date: "Febrero 2024 - Agosto 2025",
+      description: "Fui responsable del ciclo de vida completo de los pipelines de datos en el datalake de AWS. Diseñé y desarrollé nuevos procesos de ingesta, y mi rol incluyó la mejora continua del framework central, aplicando modificaciones que optimizaron su rendimiento y escalabilidad. Uno de mis principales logros fue la implementación de un sistema de 'ingesta ágil', que permitió a diferentes equipos de la compañía incorporar nuevas fuentes de datos de forma autónoma y rápida. Además, gestioné la estabilización y depuración de los flujos de trabajo existentes para garantizar la máxima fiabilidad de los datos."
+    },
+    {
+      title: "Data Engineer - Practica Profesional",
+      company: "Banco BICE",
+      date: "Septiembre 2023 - Diciembre 2023",
+      description: "Lideré la modernización de la infraestructura de datos mediante la migración de procesos ETL Salesforce Marketing Cloud a Google Cloud Platform (GCP). Diseñé y desarrollé pipelines automatizados para la ingesta de datos, integrando diversas APIs de marketing directamente con BigQuery. Este proyecto finalizo con una optimización significativa de los flujos de trabajo, mejorando la eficiencia y la disponibilidad de los datos para el análisis de negocio."
     }
   ],
   projects: [
     {
       title: "Mi Portafolio Personal",
       description: "Este mismo sitio web, construido con Astro, TailwindCSS y desplegado en Google Cloud Run con un pipeline de CI/CD automatizado.",
-      link: "https://github.com/tu-usuario/tu-repo"
+      link: "https://github.com/ElMapuchito/website_diegopacheco"
     }
   ],
-  skills: ["Amazon Web Services", "TypeScript", "Node.js", "React", "Astro", "Docker", "Google Cloud", "CI/CD"]
+  skills: ["Amazon Web Services", "Google Cloud", "CI/CD", "Docker", "TypeScript", "Node.js", "React", "Astro"],
+  certifications: [
+    {
+      title: "AWS Certified Data Engineer - Associate",
+      issuer: "Amazon Web Services",
+      date: "Diciembre 2025 - Diciembre 2028",
+      link: "https://www.credly.com/badges/eb8e25e0-1d5b-45ee-a444-a0a0c0627bfc/public_url",
+      badge: '/badges/aws-certified-data-engineer-associate.png' 
+    }
+  ]
 };

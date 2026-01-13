@@ -1,0 +1,29 @@
+---
+// src/components/Header.astro
+import { CV_DATA } from '../data/cv-data.js';
+import LinkButton from './linkButton.astro';
+import { Icon } from 'astro-icon/components';
+
+const { name, title, about, email, linkedin, github } = CV_DATA.profile;
+---
+<header class="flex flex-col gap-6">
+    <div>
+        <h1 class="text-4xl font-bold">{name}</h1>
+        <h2 class="text-xl text-sky-300 mt-2">{title}</h2>
+    </div>
+    <p class="text-slate-400 text-pretty">{about}</p>
+    <nav class="flex gap-2 flex-wrap">
+        <LinkButton href={linkedin}>
+            <Icon name="lucide:linkedin" class="size-4" />
+            LinkedIn
+        </LinkButton>
+        <LinkButton href={github}>
+            <Icon name="lucide:github" class="size-4" />
+            GitHub
+        </LinkButton>
+        <LinkButton href={`mailto:${email}`}>
+            <Icon name="lucide:mail" class="size-4" />
+            {email}
+        </LinkButton>
+    </nav>
+</header>

@@ -8,13 +8,20 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    
     "gcp:build": "gcloud builds submit --tag us-central1-docker.pkg.dev/diego-project-cl/website/website:latest .",
-
     "gcp:deploy": "gcloud run deploy website --image us-central1-docker.pkg.dev/diego-project-cl/website/website:latest --region us-central1 --platform managed --allow-unauthenticated --memory 512Mi --cpu 1 --max-instances 2 --min-instances 0"
   },
   "dependencies": {
     "@astrojs/node": "^9.5.1",
-    "astro": "^5.16.8"
+    "@iconify-json/lucide": "^1.2.84",
+    "@tailwindcss/vite": "^4.1.18",
+    "astro": "^5.16.8",
+    "astro-icon": "^1.1.5"
+  },
+  "devDependencies": {
+    "@astrojs/tailwind": "^6.0.2",
+    "autoprefixer": "^10.4.23",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.19"
   }
 }

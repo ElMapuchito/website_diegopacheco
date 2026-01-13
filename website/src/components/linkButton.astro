@@ -1,0 +1,22 @@
+---
+// src/components/LinkButton.astro
+import type { HTMLAttributes } from 'astro/types';
+
+type Props = HTMLAttributes<'a'>;
+
+const { href, class: className, ...props } = Astro.props;
+---
+<a 
+  href={href}
+  class:list={[
+    "flex items-center gap-2 py-2 px-3 rounded-full text-sm",
+    "bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition-colors",
+    "ring-1 ring-white/10",
+    className
+  ]}
+  target="_blank" 
+  rel="noopener noreferrer"
+  {...props}
+>
+  <slot />
+</a>

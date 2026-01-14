@@ -2,6 +2,7 @@
 // src/components/Certifications.astro
 import { CV_DATA } from '../data/cv-data.js';
 import { Icon } from 'astro-icon/components';
+import { Image } from 'astro:assets';
 
 const { certifications } = CV_DATA;
 ---
@@ -15,11 +16,13 @@ const { certifications } = CV_DATA;
               rel="noopener noreferrer"
               class="flex flex-col sm:flex-row items-start sm:items-center gap-4 p-4 rounded-lg ring-1 ring-white/10 bg-slate-800/50 hover:bg-slate-800/90 hover:ring-white/20 transition-all"
             >
-                <img 
+                <Image 
                     src={badge} 
                     alt={`Badge de la certificación ${title}`}
-                    class="size-24 flex-shrink-0"
+                    class="flex-shrink-0"
                     loading="lazy"
+                    width={96}   
+                    height={96}
                 />
 
                 <div class="flex-grow w-full">

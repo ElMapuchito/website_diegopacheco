@@ -1,4 +1,5 @@
-// src/data/cv-data.js
+import awsBadgeDataEngineer from '../assets/images/badges/aws-certified-data-engineer-associate.png';
+
 export const CV_DATA = {
   navigation: [
     { name: "Experiencia", url: "#experiencia" },
@@ -49,7 +50,7 @@ export const CV_DATA = {
       issuer: "Amazon Web Services",
       date: "Diciembre 2025 - Diciembre 2028",
       link: "https://www.credly.com/badges/eb8e25e0-1d5b-45ee-a444-a0a0c0627bfc/public_url",
-      badge: '/badges/aws-certified-data-engineer-associate.png' 
+      badge: awsBadgeDataEngineer
     }
   ]
 };

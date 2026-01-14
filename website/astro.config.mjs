@@ -11,5 +11,13 @@ export default defineConfig({
     mode: 'standalone'
   }),
 
-  integrations: [tailwind(), icon(), sitemap()],
+  integrations: [
+    tailwind(), 
+    icon(), 
+    sitemap()
+  ],
+
+  build: {
+    inlineStylesheets: 'auto'
+  }
 });

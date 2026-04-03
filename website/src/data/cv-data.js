@@ -18,9 +18,15 @@ export const CV_DATA = {
   },
   experience: [
     {
+      title: "Data Engineer",
+      company: "3IT",
+      date: "Febrero 2026 - Presente",
+      description: "Actualmente desarrollando nuevas ideas que quedaran plasmadas en este sitio."
+    },
+    {
       title: "AI & Data Engineer",
       company: "Deloitte",
-      date: "Agosto 2025 - Presente",
+      date: "Agosto 2025 - Febrero 2026",
       description: "Mi rol se centra en la creación de productos de datos de alto valor, modernizando el ecosistema analítico de la compañía. Coperativamente llevamos la compleja tarea de re-arquitectar y migrar lógicas de negocio críticas desde sistemas SAP ABAP o Access a una arquitectura nativa en Google Cloud Platform (GCP), desbloqueando datos antes inaccesibles. Para garantizar la integridad y calidad de estos nuevos activos, donde se implemento un marco de gobernanza de datos utilizando Google Dataplex, automatizando el descubrimiento, la catalogación y la aplicación de políticas de seguridad. Además, desarrolle agentes inteligentes con Google ADK y el modelo Gemini para automatizar tareas de procesamiento y facilitar la consulta de datos en lenguaje natural."
     },
     {
